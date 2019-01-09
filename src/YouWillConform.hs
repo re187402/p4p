@@ -1,5 +1,7 @@
 module YouWillConfrom where
 
+import Data.List (group)
+
 type Cap = Char
 {-
 'F' 前向き
@@ -17,7 +19,10 @@ cap1 :: [Cap]
 cap1 = "FFBBBFBBBFFBF"
 
 ranges1 :: [Range]
-ranges1 = [(3, 5), (7, 9), (12, 12)]
+ranges1 = [(1,2),(3,5),(6,6), (7,9) , (10,11) ,(12,12), (13,13)]
+
+ranges2 :: [Range]
+ranges2 = [(3, 5), (7, 9), (12, 12)]
 
 cap2 :: [Cap]
 cap2 = "FFBBBFBBBFFFF"
@@ -25,7 +30,7 @@ cap2 = "FFBBBFBBBFFFF"
 --
 
 pleaseConform :: [Cap] -> [Cmd]
-pleaseConform = map mkCmd . takeEvery2nd . gonyogonyo
+pleaseConform = makeCommands . takeEvery2nd . gonyogonyo
 
 
 makeCommands :: [Range] -> [Cmd]
